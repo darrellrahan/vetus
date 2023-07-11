@@ -15,8 +15,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={pressStart2P.className}>{children}</body>
+    <html lang="en" className="scroll-smooth">
+      <body className={`${pressStart2P.className} overflow-hidden`}>
+        {children}
+      </body>
     </html>
   );
 }
