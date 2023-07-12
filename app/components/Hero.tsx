@@ -8,6 +8,10 @@ function Hero() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     document.body.style.overflowY = overflow;
+
+    return () => {
+      document.body.style.overflowY = "auto";
+    };
   }, [overflow]);
 
   return (
