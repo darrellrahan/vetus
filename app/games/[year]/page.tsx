@@ -33,7 +33,7 @@ function page({ params: { year } }: { params: { year: string } }) {
                       data.titleBg.includes("red")
                         ? "text-yellow-400"
                         : "text-white"
-                    } text-2xl font-medium ${
+                    } text-xl font-medium ${
                       data.titleBg
                     } bg-no-repeat bg-cover`}
                   >
@@ -48,7 +48,7 @@ function page({ params: { year } }: { params: { year: string } }) {
                   </div>
                 </div>
               </div>
-              <p className="text-xl font-semibold mt-5 mb-6 text-white">
+              <p className="text-xl font-semibold my-5 text-white">
                 {data.name}
               </p>
               <a
