@@ -3,13 +3,15 @@ import { games } from "@/app/data";
 import React from "react";
 
 function page({ params: { year } }: { params: { year: string } }) {
+  const filteredGames = games.filter((data) => data.category === year);
+
   return (
     <main className="bg-black p-8 relative overflow-hidden">
       <Meteor />
       <div className="z-10 relative">
         <h1 className="text-center text-9xl text-[#512023] mb-8">{year}</h1>
-        <div className="grid grid-cols-3 gap-12">
-          {games.map((data) => (
+        <div className="grid grid-cols-3 gap-12 mb-24">
+          {filteredGames.map((data) => (
             <div key={data.id}>
               <div
                 className={`w-full h-[700px] overflow-hidden ${data.bg} bg-no-repeat bg-cover p-6 rounded-[2.125rem]`}
@@ -51,13 +53,19 @@ function page({ params: { year } }: { params: { year: string } }) {
               </p>
               <a
                 href={`/games/${year}/${data.id}`}
-                className="border-[4px] border-[#4A289C] rounded-full py-3 px-4 text-white text-sm hover:bg-[#4A289C] duration-200 ease-linear"
+                className="border-[4px] border-[#4A289C] rounded-full py-3 px-4 text-white text-sm hover:scale-[0.9] block w-fit duration-200 ease-linear"
               >
                 Read More
               </a>
             </div>
           ))}
         </div>
+        <a
+          href="/#games"
+          className="border-[4px] border-black rounded-full py-2 px-4 bg-[#ED1C24] text-lg font-medium hover:scale-[0.9] duration-300 ease-linear block w-fit"
+        >
+          BACK
+        </a>
       </div>
     </main>
   );
