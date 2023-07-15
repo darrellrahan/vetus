@@ -1,3 +1,4 @@
+import Card from "@/app/components/Card";
 import Meteor from "@/app/components/Meteor";
 import { games } from "@/app/data";
 import React from "react";
@@ -9,45 +10,24 @@ function page({ params: { year } }: { params: { year: string } }) {
     <main className="bg-black p-8 relative overflow-hidden">
       <Meteor />
       <div className="z-10 relative">
-        <h1 className="text-center text-9xl text-[#512023] mb-8">{year}</h1>
+        <h1 className="text-center text-9xl text-[#512023]">{year}</h1>
+        <p className="text-center text-white text-[0.75rem] my-12">
+          You can flip the card by clicking on it!
+        </p>
         <div className="grid grid-cols-3 gap-12 mb-24">
           {filteredGames.map((data) => (
             <div key={data.id}>
-              <div
-                className={`w-full h-[700px] overflow-hidden ${data.bg} bg-no-repeat bg-cover p-6 rounded-[2.125rem]`}
-              >
-                <p className={`${data.gameCardTextColor} text-center text-sm`}>
-                  GAME CARD
-                </p>
-                <div
-                  className={`h-[350px] ${data.poster} bg-no-repeat bg-cover relative my-4`}
-                >
-                  <div className="absolute bottom-28 right-0 p-1 text-xl font-semibold bg-[#DFA421] rounded-[0.3125rem] border-[4px] border-black shadow-[0px_4px_4px_0px_#000]">
-                    {data.year}
-                  </div>
-                  <div className="absolute bottom-16 right-0 p-2 font-medium text-white bg-[#C8462F] text-xs rounded-[0.3125rem] border-[4px] border-black shadow-[0px_4px_4px_0px_#000]">
-                    {data.owner}
-                  </div>
-                  <div
-                    className={`absolute bottom-0 left-0 py-2 px-4 ${
-                      data.titleBg.includes("red")
-                        ? "text-yellow-400"
-                        : "text-white"
-                    } text-xl font-medium ${
-                      data.titleBg
-                    } bg-no-repeat bg-cover`}
-                  >
-                    {data.name}
-                  </div>
-                </div>
-                <div
-                  className={`p-2 ${data.descBg} rounded shadow-[0px_4px_4px_0px_rgba(255,255,255,0.32)_inset,_0px_4px_4px_0px_rgba(255,255,255,0.33)] h-[15.5rem]`}
-                >
-                  <div className="bg-stone-500 h-full flex items-center rounded-2xl px-2 py-4 text-white text-xs">
-                    {data.desc}
-                  </div>
-                </div>
-              </div>
+              <Card
+                bg={data.bg}
+                desc={data.desc}
+                descBg={data.descBg}
+                gameCardTextColor={data.gameCardTextColor}
+                name={data.name}
+                owner={data.owner}
+                poster={data.poster}
+                titleBg={data.titleBg}
+                year={data.year}
+              />
               <p className="text-xl font-semibold my-5 text-white">
                 {data.name}
               </p>
@@ -62,7 +42,7 @@ function page({ params: { year } }: { params: { year: string } }) {
         </div>
         <a
           href="/#games"
-          className="border-[4px] border-black rounded-full py-2 px-4 bg-[#ED1C24] text-lg font-medium hover:scale-[0.9] duration-300 ease-linear block w-fit"
+          className="rounded-full py-2 px-4 bg-[#ED1C24] text-lg font-medium hover:scale-[0.9] duration-300 ease-linear block w-fit"
         >
           BACK
         </a>
