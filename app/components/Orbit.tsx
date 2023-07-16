@@ -4,7 +4,9 @@ function Orbit() {
   return (
     <section id="games">
       <div className="h-screen bg-[url('/images/orbit/bg.png')] bg-cover bg-no-repeat relative overflow-hidden">
-        <h1 className="text-white text-center my-12">Click the planet!</h1>
+        <h1 className="text-white text-center my-12 lg:hidden">
+          Click the planet!
+        </h1>
         <div className="absolute top-[38%] left-[41%] lg:top-[37.5%] lg:left-[43.5%] w-[70px] h-[70px] lg:w-[220px] lg:h-[220px] border border-white animate-orbit1 rounded-full z-50">
           <a
             href="/games/80s"
