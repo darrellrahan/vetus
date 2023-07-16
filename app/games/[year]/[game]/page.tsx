@@ -8,11 +8,11 @@ function page({ params: { game } }: { params: { game: string } }) {
   if (!details) return;
 
   return (
-    <main className="bg-black py-12 px-20 relative overflow-hidden h-screen">
+    <main className="bg-black py-16 px-8 lg:py-12 lg:px-20 relative overflow-hidden h-auto lg:h-screen">
       <Meteor />
       <div className="z-10 relative flex flex-col justify-between h-full">
         <p
-          className="text-center text-6xl uppercase"
+          className="text-center text-4xl lg:text-6xl uppercase"
           style={{
             WebkitTextStroke: `3px ${details.color}`,
             WebkitTextFillColor: "transparent",
@@ -20,24 +20,34 @@ function page({ params: { game } }: { params: { game: string } }) {
         >
           {details.name}
         </p>
-        <div className="grid grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 my-12 lg:my-0">
           <div
-            className={`${details.gameplay} bg-no-repeat bg-cover h-full`}
+            className={`${details.gameplay} bg-no-repeat bg-cover h-80 lg:h-full`}
           ></div>
           <div className="space-y-8">
             <div className="space-y-4">
-              <h3 className={`${details.textColor} text-2xl`}>
+              <h3 className={`${details.textColor} text-lg lg:text-2xl`}>
                 About The Game
               </h3>
-              <p className="text-white text-sm">{details.desc}</p>
+              <p className="text-white text-[0.7rem] lg:text-sm">
+                {details.desc}
+              </p>
             </div>
             <div className="space-y-4">
-              <h3 className={`${details.textColor} text-2xl`}>Release Year</h3>
-              <p className="text-white text-sm">{details.year}</p>
+              <h3 className={`${details.textColor} text-lg lg:text-2xl`}>
+                Release Year
+              </h3>
+              <p className="text-white text-[0.7rem] lg:text-sm">
+                {details.year}
+              </p>
             </div>
             <div className="space-y-4">
-              <h3 className={`${details.textColor} text-2xl`}>Genre</h3>
-              <p className="text-white text-sm">{details.genre.join(", ")}</p>
+              <h3 className={`${details.textColor} text-lg lg:text-2xl`}>
+                Genre
+              </h3>
+              <p className="text-white text-[0.7rem] lg:text-sm">
+                {details.genre.join(", ")}
+              </p>
             </div>
           </div>
         </div>

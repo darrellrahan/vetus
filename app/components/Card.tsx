@@ -44,7 +44,7 @@ function Card({
         <div
           className={`absolute bottom-0 left-0 py-2 px-4 ${
             titleBg.includes("red") ? "text-yellow-400" : "text-white"
-          } text-xl font-medium ${titleBg} bg-no-repeat bg-cover`}
+          } text-sm lg:text-xl font-medium ${titleBg} bg-no-repeat bg-cover`}
         >
           {name}
         </div>
@@ -52,7 +52,7 @@ function Card({
       <div
         className={`p-2 ${descBg} rounded shadow-[0px_4px_4px_0px_rgba(255,255,255,0.32)_inset,_0px_4px_4px_0px_rgba(255,255,255,0.33)] h-[15.5rem]`}
       >
-        <div className="bg-stone-500 h-full flex items-center rounded-2xl px-2 py-4 text-white text-xs">
+        <div className="bg-stone-500 h-full flex items-center rounded-2xl px-2 py-4 text-white text-[0.6rem] lg:text-xs">
           {desc}
         </div>
       </div>
