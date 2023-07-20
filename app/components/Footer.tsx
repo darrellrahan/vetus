@@ -27,6 +27,7 @@ function Footer() {
     const data = await res.json();
 
     if (data.error) {
+      console.log(data.error);
       setErrorMessage("Hey, you are already subscribed!");
       setSuccessMessage(undefined);
       return;
