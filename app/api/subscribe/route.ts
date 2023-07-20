@@ -1,8 +1,8 @@
 import mailchimp from "@mailchimp/mailchimp_marketing";
 
 mailchimp.setConfig({
-  apiKey: "07589670f62196f9d473d8cd9d316727-us21",
-  server: "us21",
+  apiKey: process.env.MAILCHIMP_API_KEY,
+  server: process.env.MAILCHIMP_API_SERVER,
 });
 
 export async function POST(request: Request) {
@@ -11,10 +11,10 @@ export async function POST(request: Request) {
   if (!email) new Response(JSON.stringify({ error: "Email is required" }));
 
   try {
-    const res = await mailchimp.lists.addListMember("334cf2a72c", {
-      email_address: email,
-      status: "subscribed",
-    });
+    const res = await mailchimp.lists.addListMember(
+      process.env.MAILCHIMP_AUDIENCE_ID!,
+      { email_address: email, status: "subscribed" }
+    );
 
     return new Response(JSON.stringify({ res }));
   } catch (error: any) {
