@@ -22,6 +22,11 @@ export default function RootLayout({
       </body>
       <Script
         async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7804133063729413"
+        crossOrigin="anonymous"
+      ></Script>
+      <Script
+        async
         src={`https://www.googletagmanager.com/gtag/js?id=G-XVR4HFJ5WE`}
       ></Script>
       <Script>
