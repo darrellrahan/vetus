@@ -88,6 +88,9 @@ function Footer() {
             Darrell
           </a>
         </p>
+        <a href="/privacy-policy" className={`${poppins.className} text-sm`}>
+          Privacy Policy
+        </a>
         <div className="w-full">
           <hr className="w-full border border-[#7C7C7C80] mb-6" />
           <p
